@@ -1,0 +1,206 @@
+@import url("./devices.css");
+
+
+html,
+body{
+    height: 100%;
+
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+.appContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+
+}
+
+
+
+/**
+ *
+ * top container
+ *
+ */
+
+
+.topContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+}
+
+
+
+
+.resultContainer{
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;   
+    height: 60%; 
+    padding: 3%;
+    
+}
+
+.result{
+    padding: 3%;
+    
+}
+
+.result>span{
+    color: var(--main--textColor);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 2.3em;
+}
+
+.live{
+    padding: 2%;
+    
+}
+.live>span{
+    
+    font-size: 0.8em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: var(--main--bgColor);
+
+    
+}
+
+
+
+/**
+ *
+ * numeric Container
+ *
+ */
+
+
+
+
+
+.numericContainer{
+  
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.numContainer{
+    
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    flex: auto;
+    grid-template-areas: 
+    "top top side"
+    "center center side" 
+    "center center side"   
+    ;
+
+    grid-template-rows: 20% auto 10%;
+}
+
+
+
+
+/**
+ *
+ * top section
+ *
+ */
+
+
+.top{
+    grid-area: top;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    
+}
+.top>div{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+.top>div:nth-last-child(1){
+    font-size: 0.8rem;
+}
+
+
+
+
+/**
+ *
+ * center section
+ *
+ */
+
+
+
+.center{
+    grid-area: center;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.center>div{
+    font-weight: 400;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/**
+ *
+ * side section
+ *
+ */
+
+
+
+.rightSide{
+    grid-area: side;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.rightSide>div>i{
+    font-size: 0.7rem;
+    margin: 15px;
+}
+.rightSide>div{
+    background-color: var(--main--bgColor);
+    border-radius: 60%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    transition: background-color 0.5s linear;
+
+}
+
+.rightSide>div:hover{
+    background-color: rgb(0, 140, 255);
+
+}
+
+.rightSide>div:nth-last-child(1){
+    background-color: var(--main--textColor2);
+    color: white!important;
+}

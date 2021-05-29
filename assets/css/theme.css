@@ -1,0 +1,23 @@
+:root {
+
+    --main--bgColor : #d3d3d3;
+    --main--whiteTheme : #FDFDFD;
+    --main--textColor : #08070B;
+    --main--btnColor : #56555E;
+    --main--textColor2 : #341CFC;
+}
+
+
+span,
+div,
+p{
+    color: var(--main--textColor);
+}
+
+
+body{
+    background-color: var(--main--bgColor);
+    
+}
+
+
