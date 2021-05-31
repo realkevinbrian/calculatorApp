@@ -16,6 +16,7 @@
         grid-column: 4/-4;
         height: 90%;
         
+        
     }
 
 }
@@ -74,14 +75,14 @@
     body{
         
         display: grid;
-        grid-template-columns: repeat(12,1fr);
+        grid-template-columns: repeat(36,1fr);
         grid-template-rows:100%;
         align-items: center;
     }
 
     .appContainer{
         background-color: var(--main--whiteTheme);
-        grid-column: 5/-5;
+        grid-column: 14/-14;
         height: 90%;
         
     }
