@@ -1,3 +1,16 @@
+
+/**
+ *
+ * Developed and mantained by kevin Brian
+    Design by Kevin
+    contact : 
+    email : realkevinbrian@gmail.com
+    whatsapp : +258 85 5874201
+ *
+ */
+
+
+
 //listen for all keypresses 
 const keys = document.querySelector(".numContainer");
 // const displayResult = document.getElementById("displayResult");

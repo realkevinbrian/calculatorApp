@@ -1,6 +1,7 @@
 # calculatorApp
 Developing a calculator App 
 
+#Algorith I used to create to the calculator
 
 Skills I will be Practising
 
