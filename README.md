@@ -22,7 +22,7 @@ Building process
 
     3.2-If the key has a data-action that is either add, subtract, multiply or divide, we know the key is an operator.
 
-    3.3- 3.2-If the key has a data-action that is decimal , clear , equal 
+    3.3.-If the key has a data-action that is decimal , clear , equal 
 
 4-When a user hits a number key
 
@@ -46,7 +46,7 @@ Building process
 
     7.3-If the previousKeyType is an operator, we want to replace the displayed number with clicked number.
 
-8-When a user hits the equals key
+8-When a user hits the equals 
 
     8.1-When you hit the equals key, the calculator should calculate a result that depends on three values: 
 

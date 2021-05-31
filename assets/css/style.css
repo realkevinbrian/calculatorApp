@@ -99,6 +99,11 @@ button:hover{
     
 }
 
+#liveResult{
+    color: rgb(0, 119, 255);
+    font-size: 1.3rem;
+}
+
 
 
 /**
@@ -136,6 +141,9 @@ button:hover{
     grid-template-rows: 20% auto 10%;
 }
 
+.active{
+    background-color: rgb(0, 153, 255);
+}
 
 
 
@@ -181,6 +189,7 @@ button:hover{
 .center>button{
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 

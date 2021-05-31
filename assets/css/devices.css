@@ -2,7 +2,7 @@
 
 
 
-@media only screen and (min-width : 320px) {
+@media only screen and (min-width : 320px) and (max-width:480px) {
     body{
         
         display: grid;
@@ -13,7 +13,7 @@
 
     .appContainer{
         background-color: var(--main--whiteTheme);
-        grid-column: 4/-4;
+        grid-column: 2/-2;
         height: 90%;
         
         
