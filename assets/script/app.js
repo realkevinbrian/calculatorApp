@@ -93,25 +93,22 @@ keys.addEventListener("click", elem =>{
 
                 let result = '';
 
-               switch(operator){
-
-                case "add":
+                if(operator === "add"){
                     result = parseFloat(arg1) + parseFloat(arg2);
-                    break;
-                case "minus":
-                    result = parseFloat(arg1) - parseFloat(arg2);
-                    break;
+                }
 
-                case "divide":
+                if(operator === "minus"){
+                    result = parseFloat(arg1) + parseFloat(arg2);
+
+                }
+
+                if(operator === "divide"){
                     result = parseFloat(arg1) / parseFloat(arg2);
-                    break;
-                
-                case "multiply":
-                    result = parseFloat(arg1) * parseFloat(arg2);
-                    break;
-                        
-               }
+                }
 
+                if(operator === "multiply"){
+                    result = parseFloat(arg1) * parseFloat(arg2);
+                }
                return result;
             }
 
@@ -142,15 +139,15 @@ keys.addEventListener("click", elem =>{
                 //grab the first and second Value -> we set a custom attribute
                 const secondValue = displayLive.textContent;
                 const firstValue = keys.dataset.firstValue;
-
-               
-
-
                 displayResult.textContent = calculate(firstValue,operator,secondValue);
-
-                console.log(secondValue);
-            // console.log(secondValue);
             }
+
+            //if you click on clear btn it clears the screen and sets everything to zero
+            if(action === "clear"){
+                displayResult.textContent = 0;
+                displayLive.textContent = 0;
+            }
+            
 
             
         }
