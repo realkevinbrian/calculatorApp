@@ -1,157 +1,101 @@
 
-/**
- *
- * Developed and mantained by kevin Brian
-    Design by Kevin
-    contact : 
-    email : realkevinbrian@gmail.com
-    whatsapp : +258 85 5874201
- *
- */
 
+//grab the all keys
+const allKeys = document.querySelector(".numContainer");
+const liveResult = document.getElementById("liveResult");
+const displayResult = document.getElementById("displayResult");
+//add event listener to all buttons
+allKeys.addEventListener("click", triggerKeys);
 
+function triggerKeys (elem){
 
-//listen for all keypresses 
-const keys = document.querySelector(".numContainer");
-// const displayResult = document.getElementById("displayResult");
-
-keys.addEventListener("click", elem =>{
-
-    //determine the type of key that is pressed
+    //just check for buttons
     if(elem.target.matches("button")){
-        
-        //we can use the data-action attribute to determine the type of key that is clicked.
+
+        //specify the keys
         const key = elem.target;
-        const action = key.dataset.action;
-
-        //get value inside the display: 
-        const displayLive = document.getElementById("liveResult");
-        const displayResult = document.getElementById("displayResult");
-
-        const previousClicked  =  keys.dataset.previousClicked;
-
-
-        //remove the active class form all keys
-        Array.from(key.parentNode.children)
-        .forEach(k => k.classList.remove("active"));
-
-
-        //If the key does not have a data-action attribute, it must be a number key.
-        if(!action){
-            
-
-        //-if the calculator shows 0 (the default number), the target number should replace zero.
-        if(displayLive.textContent === "0"){
-
-            displayLive.textContent = key.textContent;
-
-
-        }
-        //If the calculator shows a non-zero number, the target number should be appended to the displayed number.
-        else if(displayLive.textContent !== "0" ||previousClicked === "operator"){
-
-            displayLive.textContent += `${key.textContent}`;
-
-            
-
-
-            
-
-        }
+        const action = key.dataset['action'];
 
         
+
+        // console.log(action);
+        //check if clicked a common key that is not a button
+        if(!action){
+        
+            /*
+            ->if the live output content is 0, enter the clicked number
+            */
+            // console.log(liveResult.textContent);
+
+            if(liveResult.textContent === "0" && displayResult.textContent === "0"){
+
+                // console.log("Both empty");
+                liveResult.textContent = key.textContent;
+
+                
+            }
+            //otherwise append the typed content to the display
+            else{
+
+                liveResult.textContent += key.textContent;
+
+                // const previousClicked =
             }
 
+            //if you click on a key, trigger a custom attribute to grab its value as previus clicked
+            if(key){
 
-        //If the key has a data-action that is either add, subtract, multiply or divide, we know the key is an operator.
-        if(action === 'add' ||
-           action === 'multiply' ||
-           action === 'minus' ||
-           action === 'divide'){
+                //create anew attribute
+                const prevClickedAttr = document.createAttribute("prevClicked");
 
-            // add a class to make it active when the operator keys are clicked
-            key.classList.add("active");
+                key.setAttribute(prevClickedAttr,key.textContent);
 
-            //we gonna have to add this custom attribute data-previous-key-type and set it to operator value;
-            keys.dataset.previousClicked = "operator";
+                const prevClick = key.getAttribute("prevClicked");
 
-            //display the live result in the display
-            displayLive.textContent += key.textContent;
-
-            //add a custom attribute to set it
-            keys.dataset.operator = action;
-            keys.dataset.firstValue = displayLive.textContent;
-
-
-
+                console.log(prevClick.textContent);
             }
-
-
-            //initialize a function that calculates number
-
-            const calculate = (arg1,operator,arg2) =>{
-
-                let result = '';
-
-                if(operator === "add"){
-                    result = parseFloat(arg1) + parseFloat(arg2);
-                }
-
-                if(operator === "minus"){
-                    result = parseFloat(arg1) + parseFloat(arg2);
-
-                }
-
-                if(operator === "divide"){
-                    result = parseFloat(arg1) / parseFloat(arg2);
-                }
-
-                if(operator === "multiply"){
-                    result = parseFloat(arg1) * parseFloat(arg2);
-                }
-               return result;
-            }
-
             
+        }
 
+        //otherwise the element have action set 
+        else if(action){
 
-            
+            //check if a clicked action is add/minus/divide or multiply
 
-        //If the key has a data-action that is decimal , clear , equal 
+            if(action === "add" ||
+            action === "minus" ||
+            action === "multiply" ||
+            action === "divide"){
 
-        if(action === 'decimal' ||
-        action === 'clear' ||
-        action === 'equal'){
+                //if you clicked on the operator append the operator sign to live live display: 
 
-            //-When you hit the decimal key, a decimal should appear on the display. If you hit any number after hitting a decimal key, the number should be appended on the display as well.
+                liveResult.textContent += key.textContent;
 
+            }
+
+            //check if user clicked a decimal
             if(action === "decimal"){
 
-                displayLive.textContent += "."
-                
+                liveResult.textContent += key.textContent;
             }
 
-            if(action === "equal"){
-                
-                //grab the operator -> we set a custom attribute
-                const operator = keys.dataset.operator;
-
-                //grab the first and second Value -> we set a custom attribute
-                const secondValue = displayLive.textContent;
-                const firstValue = keys.dataset.firstValue;
-                displayResult.textContent = calculate(firstValue,operator,secondValue);
-            }
-
-            //if you click on clear btn it clears the screen and sets everything to zero
+            //if the user clicks on clear sign
             if(action === "clear"){
-                displayResult.textContent = 0;
-                displayLive.textContent = 0;
-            }
-            
 
-            
+                console.log("user clicked " + key.textContent);
+            }
+
+
+            //check if a user clicked on equal operator
+            else if(action === "equal"){
+                
+
+            }
+
         }
 
-      
     }
-})
+    
+
+
+}
